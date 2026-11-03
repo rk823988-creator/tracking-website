@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Parcel Tracking</title>
+    <style>
+        body {
+            margin: 0; padding: 0; font-family: Arial, sans-serif;
+            background-color: #0f172a; color: white;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; text-align: center;
+        }
+        .container { padding: 20px; max-width: 500px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .highlight { color: #00ffcc; }
+        p { color: #94a3b8; margin-bottom: 30px; }
+        .search-box {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        input {
+            padding: 15px; border-radius: 8px; border: 1px solid #334155;
+            background-color: #1e293b; color: white; font-size: 16px; outline: none;
+        }
+        input:focus { border-color: #00ffcc; }
+        button {
+            padding: 15px; border-radius: 8px; border: none;
+            background-color: #00ffcc; color: #0f172a; font-size: 18px;
+            font-weight: bold; cursor: pointer; transition: 0.3s;
+        }
+        button:hover { background-color: #00ccaa; }
+        #result { margin-top: 20px; font-size: 18px; color: #f1f5f9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Universal <span class="highlight">Parcel</span> Tracking</h1>
+        <p>Normalize chaotic scan streams into clean, verifiable delivery timestamps.</p>
+        
+        <div class="search-box">
+            <input type="text" id="trackingNumber" placeholder="Enter Tracking Number (e.g. 12345678)">
+            <button onclick="trackParcel()">Track Parcel</button>
+        </div>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function trackParcel() {
+            var trackingId = document.getElementById('trackingNumber').value;
+            if(trackingId === "") {
+                document.getElementById('result').innerHTML = "<span style='color:red'>Please enter a tracking number!</span>";
+            } else {
+                // यहाँ हम बाद में Python API से डेटा लाएंगे
+                document.getElementById('result').innerHTML = "Tracking details for: <b>" + trackingId + "</b><br><br><i>(Connecting to backend...)</i>";
+            }
+        }
+    </script>
+</body>
+</html>
